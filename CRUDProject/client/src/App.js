@@ -54,6 +54,7 @@ function App() {
         } else {
           const company = res.data[0];
           setEditCompany(company);
+          setContactData(JSON.parse(company.contactPerson));
           formRef.current.setFieldsValue(company);
         }
       })
@@ -122,6 +123,7 @@ function App() {
     form.resetFields();
     contactPersonRef.current.reset();
     setContactData([]);
+    setEditCompany({});
   };
   const onFinish = () => {
     form

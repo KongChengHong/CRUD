@@ -90,6 +90,7 @@ app.put("/api/update/:companyId", (req, res) => {
   const tel = req.body.tel;
   const fax = req.body.fax;
   const note = req.body.note;
+  const contactPerson = req.body.contactPerson;
 
   const sqlInsert = `UPDATE company SET 
       applicant = ?, 
@@ -100,6 +101,7 @@ app.put("/api/update/:companyId", (req, res) => {
       tel = ?,
       fax = ?, 
       note = ?, 
+      contactPerson = ?,
       updateTime = current_timestamp 
       WHERE id = ?
     `;
@@ -114,6 +116,7 @@ app.put("/api/update/:companyId", (req, res) => {
       tel,
       fax,
       note,
+      contactPerson,
       companyId,
     ],
     (err, result) => {
